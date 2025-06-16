@@ -1,0 +1,9 @@
+/data/
+.idea/
+models/
+old_version/
+examples/
+results/
+cache/
+**/__pycache__/*
+**/.DS_Store

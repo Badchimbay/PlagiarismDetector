@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<script src="{{ url_for('static', filename='js/home.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="container text-center mt-4" style="width: 50%; margin-top: 70px">
+    <form onsubmit="send(this); return false">
+        <div class="row">
+            <div class="col text-start">
+                <label class="fw-bold fs-2" for="textCand">Текст для проверки</label>
+                <textarea id="text" name="text" class="form-control" rows="8"
+                          placeholder="Введите текст или загрузите файл" style="resize: none;"></textarea>
+
+                <input class="form-control mt-2" type="file" id="file" name="file" multiple>
+            </div>
+        </div>
+        <div class="row justify-content-md-center">
+            <button class="btn btn-secondary col-3 mt-3" type="submit">Проверить</button>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col">
+                <textarea id="result" class="form-control mt-3 shadow-none" readonly rows="6" style="resize: none;"></textarea>
+            </div>
+        </div>
+        <div id="img" style="width: 600px" class="row justify-content-md-center mt-3 align-self-center ms-auto me-auto">
+            <img src="">
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block modal_links %}
+<a class="btn" href="/info" style="font-size: 18px">{{ about_text }}</a>
+{% endblock %}

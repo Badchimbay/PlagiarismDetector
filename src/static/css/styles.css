@@ -1,0 +1,38 @@
+.header {
+    text-align: center;
+}
+
+.modal-backdrop {
+  opacity: 0 !important;
+}
+
+.modal.fade:not(.show).left .modal-dialog {
+    -webkit-transform: translate(-25%, 0);
+    transform: translate(-25%, 0);
+}
+
+.modal.left .modal-content {
+    min-height:100vh;
+    border:0;
+}
+
+.modal.left .modal-dialog {
+    position:absolute;
+    top:0;
+    left:0;
+    margin:0;
+}
+
+// input[type="file"] {
+//     &::file-selector-button {
+//         background-color: #A8ABB0;
+//         color: #FFFEF2;
+//     }
+// }
+//
+// input[type="file"]:hover {
+//     &::file-selector-button {
+//         background-color: #747577 !important;
+//         color: #FFFEF2 !important;
+//     }
+// }
