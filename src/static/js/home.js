@@ -20,3 +20,37 @@ function send(form) {
       }
     })
 }
+
+function reload_indexes() {
+    $('#index').attr("disabled", true)
+    $.ajax({
+      async: true,
+      url: '/reload_indexes',
+      method: 'GET',
+      processData: false,
+      contentType: false,
+      success: function (result) {
+        $('#index').attr("disabled", false)
+      },
+      error: function (error) {
+        $('#index').attr("disabled", false)
+      }
+    })
+}
+
+function open_folder() {
+    $('#index').attr("disabled", true)
+    $.ajax({
+      async: true,
+      url: '/open_folder',
+      method: 'GET',
+      processData: false,
+      contentType: false,
+      success: function (result) {
+        $('#index').attr("disabled", false)
+      },
+      error: function (error) {
+        $('#index').attr("disabled", false)
+      }
+    })
+}

@@ -4,6 +4,17 @@
 <script src="{{ url_for('static', filename='js/home.js') }}"></script>
 {% endblock %}
 
+{% block reload_index_button %}
+<span>
+    <button class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Обновление индекса" id="index" onclick="reload_indexes()">
+        <i class="bi bi-arrow-repeat"></i>
+    </button>
+    <button class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Открытие папки исходных текстов" id="folder" onclick="open_folder()">
+        <i class="bi bi-folder"></i>
+    </button>
+</span>
+{% endblock %}
+
 {% block content %}
 <div class="container text-center mt-4" style="width: 50%; margin-top: 70px">
     <form onsubmit="send(this); return false">

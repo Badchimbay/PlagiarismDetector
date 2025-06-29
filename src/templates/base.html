@@ -16,11 +16,9 @@
 <nav class="navbar bg-body-tertiary" style="height: 68px">
     <div class="container-fluid">
         <span class="navbar-brand mb-0 h1">
-            <button class="btn" data-bs-toggle="modal" data-bs-target="#menu">
-                <i class="bi bi-list"></i>
-            </button>
             <span class="navbar-brand" style="font-size: 24px">{{ title }}</span>
         </span>
+        {% block reload_index_button %} {% endblock %}
     </div>
 </nav>
 {% block content %} {% endblock %}
