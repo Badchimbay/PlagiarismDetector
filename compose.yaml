@@ -1,0 +1,18 @@
+services:
+  web:
+    container_name: web
+    command: flask run --debug --app src/app.py
+    build:
+      dockerfile: docker/Dockerfile
+      context: .
+    ports:
+      - "8888:5000"
+    restart: always
+    volumes:
+      - .:/var/www
+    healthcheck:
+      test: wget --no-verbose --tries=1 --spider http://localhost:5000/health || exit 1
+      start_period: 10s
+      interval: 30s
+      timeout: 10s
+      retries: 3
