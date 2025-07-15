@@ -1,7 +1,7 @@
 services:
   web:
     container_name: web
-    command: flask run --debug --app src/app.py
+    command: flask run --debug
     build:
       dockerfile: docker/Dockerfile
       context: .
@@ -10,6 +10,13 @@ services:
     restart: always
     volumes:
       - .:/var/www
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [ gpu ]
     healthcheck:
       test: wget --no-verbose --tries=1 --spider http://localhost:5000/health || exit 1
       start_period: 10s
