@@ -23,6 +23,7 @@ function send(form) {
 
 function reload_indexes() {
     $('#index').attr("disabled", true)
+    $('#index i').addClass('loading')
     $.ajax({
       async: true,
       url: '/reload_indexes',
@@ -30,27 +31,43 @@ function reload_indexes() {
       processData: false,
       contentType: false,
       success: function (result) {
-        $('#index').attr("disabled", false)
+        //
       },
       error: function (error) {
+        //
+      },
+      complete: function () {
         $('#index').attr("disabled", false)
+        $('#index i').removeClass('loading')
       }
     })
 }
 
-function open_folder() {
-    $('#index').attr("disabled", true)
+function sendModalFiles(form) {
+    var button = $('#submitIndexFile');
+    button[0].innerText = 'Загрузка...'
+    button.attr("disabled", true)
     $.ajax({
       async: true,
-      url: '/open_folder',
-      method: 'GET',
+      url: '/upload',
+      method: 'POST',
+      data: new FormData(form),
+      dataType: 'json',
       processData: false,
       contentType: false,
       success: function (result) {
-        $('#index').attr("disabled", false)
+        //
       },
       error: function (error) {
-        $('#index').attr("disabled", false)
+        console.log(error)
+      },
+      complete: function () {
+        var button = $('#submitIndexFile');
+        button.attr("disabled", false)
+        button[0].innerText = 'Загрузить'
+
+        var modal = bootstrap.Modal.getInstance('#uploadModal');
+        modal.hide();
       }
     })
 }

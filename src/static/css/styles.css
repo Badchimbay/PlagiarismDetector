@@ -2,26 +2,38 @@
     text-align: center;
 }
 
-.modal-backdrop {
-  opacity: 0 !important;
+.bi.loading::before {
+    animation: 0.5s linear infinite running rotate;
 }
 
-.modal.fade:not(.show).left .modal-dialog {
-    -webkit-transform: translate(-25%, 0);
-    transform: translate(-25%, 0);
+@keyframes rotate {
+    0% {transform: rotate(0)}
+    25% {transform: rotate(0.25turn)}
+    50% {transform: rotate(0.5turn)}
+    75% {transform: rotate(0.75turn)}
+    100% {transform: rotate(1turn)}
 }
 
-.modal.left .modal-content {
-    min-height:100vh;
-    border:0;
-}
-
-.modal.left .modal-dialog {
-    position:absolute;
-    top:0;
-    left:0;
-    margin:0;
-}
+//.modal-backdrop {
+//  opacity: 0 !important;
+//}
+//
+//.modal.fade:not(.show).left .modal-dialog {
+//    -webkit-transform: translate(-25%, 0);
+//    transform: translate(-25%, 0);
+//}
+//
+//.modal.left .modal-content {
+//    min-height:100vh;
+//    border:0;
+//}
+//
+//.modal.left .modal-dialog {
+//    position:absolute;
+//    top:0;
+//    left:0;
+//    margin:0;
+//}
 
 // input[type="file"] {
 //     &::file-selector-button {
